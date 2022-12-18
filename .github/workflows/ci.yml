@@ -12,6 +12,6 @@ jobs:
         with:
           node-version: 16.x
       - name: Install Playwright dependencies
-        run: mkdir /tmp/playwright-tmp && cd /tmp/playwright-tmp npx playwright install --with-deps
+        run: mkdir /tmp/playwright-tmp && cd /tmp/playwright-tmp && npx playwright install --with-deps
       - run: npm ci
       - run: TS_NODE_COMPILER_OPTIONS='{"module":"commonjs"}' ./node_modules/.bin/ts-node tests/e2e/test.ts
