@@ -26,6 +26,7 @@ jobs:
 #              libhyphen0\
 #              libgles2\
 #              gstreamer1.0-libav
-      - run: cd /tmp && npx playwright install --with-deps
+      - run: npx playwright install --with-deps
+        working-directory: /tmp/playwright-tmp
       - run: npm ci
       - run: TS_NODE_COMPILER_OPTIONS='{"module":"commonjs"}' ./node_modules/.bin/ts-node tests/e2e/test.ts
