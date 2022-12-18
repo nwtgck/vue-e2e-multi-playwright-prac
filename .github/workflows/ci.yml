@@ -16,7 +16,7 @@ jobs:
           set -eux
           # Install Playwright dependencies
           (mkdir /tmp/playwright-tmp && cd /tmp/playwright-tmp && npx playwright install --with-deps) &
-          (npm ci) &
+          (cd e2e-test && npm ci) &
           wait
         timeout-minutes: 2
-      - run: TS_NODE_COMPILER_OPTIONS='{"module":"commonjs"}' ./node_modules/.bin/ts-node tests/e2e/test.ts
+      - run: cd e2e-test && npm start
